@@ -94,3 +94,8 @@ ul li.checked::before {
   vertical-align: middle;
 }
 */
+
+span {
+  float: right;
+  padding-top: 15px;
+}
