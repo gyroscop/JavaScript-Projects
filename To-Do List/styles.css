@@ -74,10 +74,6 @@ ul li::before {
   vertical-align: middle;
 }
 
-/*
-If clicked
-
-
 ul li.checked {
   color: #555;
   text-decoration: line-through;
@@ -93,7 +89,6 @@ ul li.checked::before {
   scale: 30%;
   vertical-align: middle;
 }
-*/
 
 span {
   float: right;
