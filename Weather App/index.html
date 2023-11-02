@@ -50,21 +50,46 @@
     const apiKey = "42ae161b21692b74fdf4d7413a78e1de";
     const city = document.querySelector(".input_city");
     const submit = document.getElementById("btn");
+    const weather = document.querySelector(".weather");
+
     const apiUrl =
       "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
-    async function checkWeather() {
+    async function checkWeather(event) {
       const response = await fetch(
         apiUrl + `&q=${city.value}` + `&apiKey=${apiKey}`
       );
       var data = await response.json();
 
-      document.querySelector(".temp").innerHTML = Math.round(data.main.temp);
-      document.querySelector(".city").innerHTML = data.name;
-      document.querySelector(".humidity").innerHTML = data.main.humidity;
-      document.querySelector(".wind").innerHTML = data.wind.speed;
+      if (response.status == 404) {
+        alert("Invalid City Name");
+      } else {
+        // console.log(response);
+        // setting variables
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp);
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".humidity").innerHTML = data.main.humidity;
+        document.querySelector(".wind").innerHTML = data.wind.speed;
+
+        //setting image
+        const weather_image = data.weather[0].main;
+        console.log(weather_image);
+        document.querySelector(
+          ".weather-icon"
+        ).src = `weather-app-img/${weather_image}.png`;
+
+        // On first load page shows no information other than search bar and search button
+        weather.style.display = "initial";
+      }
     }
 
     submit.addEventListener("click", checkWeather);
+
+    //Search Button Hit By Enter
+    city.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        submit.click();
+      }
+    });
   </script>
 </html>
