@@ -69,15 +69,30 @@ answer_buttons.addEventListener("click", validate_and_showNext());
 button_next.addEventListener("click", showNextQuestion);
 
 let clickedbutton = 0;
+let correctCount = 0;
+let incorrectCount = 0;
 function validate(event) {
   const clickedbutton = event.target.id;
   //   console.log(clickedbutton);
 
   if (correctElements[question_number - 1][clickedbutton - 1] === true) {
     buttons[clickedbutton - 1].style.backgroundColor = "#92D6B6";
+    correctCount++;
   } else {
     buttons[clickedbutton - 1].style.backgroundColor = "#FAA0A0";
+    incorrectCount++;
   }
+}
+
+function showResult() {
+  // document.querySelector(".quiz").style.backgroundColor = "#92D6B6";
+  document.querySelector(
+    ".quiz"
+  ).innerHTML = `Total Correct Answer = ${correctCount} , Total incorrect Answer = ${incorrectCount} <br><br> Percentage = ${
+    (correctCount / question_number) * 100
+  } %`;
+
+  // document.querySelector(".quiz").style.whiteSpace = "pre-line";---use while using \n for line break
 }
 
 function showQuiz(element) {
@@ -87,7 +102,11 @@ function showQuiz(element) {
   ans_3.innerHTML = textElements[element][2];
   ans_4.innerHTML = textElements[element][3];
 
-  question_number++;
+  if (question_number >= 4) {
+    showResult();
+  } else {
+    question_number++;
+  }
 }
 
 function validate_and_showNext(event) {

@@ -7,6 +7,8 @@
 
 body {
   background-color: #001e4d;
+  display: grid;
+  justify-content: center;
 }
 
 .app {
@@ -62,4 +64,19 @@ body {
   border-radius: 8px;
   cursor: pointer;
   display: none;
+}
+
+.quiz {
+  min-height: 400px;
+  min-width: 500px;
+  display: grid;
+  align-items: center;
+}
+
+.app {
+  max-width: 500px;
+  min-width: 600px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
