@@ -85,7 +85,6 @@ function validate(event) {
 }
 
 function showResult() {
-  // document.querySelector(".quiz").style.backgroundColor = "#92D6B6";
   document.querySelector(
     ".quiz"
   ).innerHTML = `Total Correct Answer = ${correctCount} , Total incorrect Answer = ${incorrectCount} <br><br> Percentage = ${
