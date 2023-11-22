@@ -43,3 +43,30 @@ button {
   margin: 30px 0 20px;
   cursor: pointer;
 }
+
+/* .notes-container {
+  padding-top: 50px;
+} */
+
+.input-box {
+  position: relative;
+  top: 40px;
+  background-color: antiquewhite;
+  color: #333;
+  width: 100%;
+  max-width: 500px;
+  min-height: 100px;
+  border: none;
+  border-color: #300202;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.input-box img {
+  width: 25px;
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  cursor: pointer;
+}
