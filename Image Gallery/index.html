@@ -7,19 +7,43 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="gallery">
-      <div>
-        <img src="images/image-1.png" />
-        <img src="images/image-2.png" />
-        <img src="images/image-3.png" />
-      </div>
+    <div class="gallery-wrap">
+      <img src="images/back.png" id="backbtn" />
+      <div class="gallery">
+        <div>
+          <span><img src="images/image-1.png" /></span>
+          <span><img src="images/image-2.png" /></span>
+          <span><img src="images/image-3.png" /></span>
+        </div>
 
-      <div>
-        <img src="images/image-4.png" />
-        <img src="images/image-5.png" />
-        <img src="images/image-6.png" />
+        <div>
+          <span><img src="images/image-4.png" /></span>
+          <span><img src="images/image-5.png" /></span>
+          <span><img src="images/image-6.png" /></span>
+        </div>
       </div>
-
+      <img src="images/next.png" id="nxtbtn" />
     </div>
+
+    <script>
+      let gallery = document.querySelector(".gallery");
+      let back = document.getElementById("backbtn");
+      let next = document.getElementById("nxtbtn");
+
+      gallery.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        gallery.scrollLeft += evt.deltaY;
+        gallery.style.scrollBehavior = "smooth";
+      });
+
+      back.addEventListener("click", (e) => {
+        gallery.scrollLeft -= 900;
+      });
+
+      next.addEventListener("click", (e) => {
+        gallery.style.scrollBehavior = "smooth";
+        gallery.scrollLeft += 900;
+      });
+    </script>
   </body>
 </html>
