@@ -64,6 +64,7 @@ const correctElements = questions.map((question) =>
 );
 
 let question_number = 0;
+let total_questions = 4;
 answer_buttons.addEventListener("click", validate_and_showNext());
 
 button_next.addEventListener("click", showNextQuestion);
@@ -87,8 +88,8 @@ function validate(event) {
 function showResult() {
   document.querySelector(
     ".quiz"
-  ).innerHTML = `Total Correct Answer = ${correctCount} , Total incorrect Answer = ${incorrectCount} <br><br> Percentage = ${
-    (correctCount / question_number) * 100
+  ).innerHTML = `Total Correct Answer = ${correctCount} , Total incorrect Answer = ${incorrectCount} <br><br> Pass Percentage = ${
+    (correctCount / total_questions) * 100
   } %`;
 
   // document.querySelector(".quiz").style.whiteSpace = "pre-line";---use while using \n for line break
